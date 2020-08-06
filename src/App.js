@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import injectTapEventPlugin from "react-tap-event-plugin";
 import orderBy from "lodash/orderBy";
+import {getRepData} from "./repdata";
+
+
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -93,7 +96,7 @@ class App extends Component {
               })
             }
           />
-          <Table
+          {/* <Table
             handleSort={this.handleSort}
             handleRemove={this.handleRemove}
             startEditing={this.startEditing}
@@ -125,7 +128,7 @@ class App extends Component {
                 prop: "pincode"
               }
             ]}
-          />
+          /> */}
         </div>
       </MuiThemeProvider>
     );
