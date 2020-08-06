@@ -22,10 +22,10 @@ export default class Form extends React.Component {
 
   }
 
-  handleChange = (event, index,value) =>{
-    console.log("Index");
-     this.setState({index});}
-
+  // handleChange = (event, index,value) =>{
+  //   console.log("Index");
+  //    this.setState({index});}
+  handleChange = (event, index, value) => this.setState({value});
   
   state = {
     representativeName: "",
@@ -54,35 +54,45 @@ export default class Form extends React.Component {
     
   };
 
-  renderDropdownValues=()=>{
-    return (<div>
-      {RepMappingList.map((repObj, index) => {
-        console.log(repObj.representativeName);
-        console.log(index);
-      return (<MenuItem key={index} value={index} primaryText={repObj.representativeName} />)
-  })}</div>);
-  }
+  // renderDropdownValues=()=>{
+  //   return (<div>
+  //     {RepMappingList.map((repObj, index) => {
+  //       console.log(repObj.representativeName);
+  //       console.log(index);
+  //     return (<MenuItem key={index} value={index} primaryText={repObj.representativeName} />)
+  // })}</div>);
+  // }
+
+
 
   render() {
-    let {index}=this.state;
+    //let {index}=this.state;
     return (
       <form>
-        <DropDownMenu
-          value={RepMappingList[index].representativeName}
-        
-          onChange={this.handleChange}
-        //  onSelect={this.handleChange}
-          style={styles.customWidth}
+        <DropDownMenu 
+          value={this.state.value} 
           autoWidth={false}
+          style={styles.customWidth} 
+          onChange={this.handleChange}
         >
-          {/* <MenuItem value={0} primaryText="Select Rep" />
-          <MenuItem value={1} primaryText="RaJesh" />
-          <MenuItem value={2} primaryText="Sooraj" />
-          <MenuItem value={3} primaryText="Mukund" />
-          <MenuItem value={4} primaryText="Sooraj" />
-          <MenuItem value={5} primaryText="Nikhil" /> */}
-          {this.renderDropdownValues()}
+          <MenuItem value={0} primaryText="Never"/>
+          <MenuItem value={1} primaryText="Kiran" />
+          <MenuItem value={2} primaryText="Somesh" />
+          <MenuItem value={3} primaryText="Ravi" />
+          <MenuItem value={4} primaryText="Saurav" />
+          <MenuItem value={5} primaryText="Manish" />
         </DropDownMenu>
+
+        {/* //   value={RepMappingList[index].representativeName}
+        
+        //   onChange={this.handleChange}
+        // //  onSelect={this.handleChange}
+        //   style={styles.customWidth}
+        //   autoWidth={false}
+        // >
+
+          //</form>{this.renderDropdownValues()} */}
+        
         <br />
         <TextField
           name="headQuaters"
